@@ -11,41 +11,41 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = Client
 build_property.RootNamespace = Client
-build_property.ProjectDir = /Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/
+build_property.ProjectDir = /Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client
+build_property.MSBuildProjectDirectory = /Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/App.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Pages/Counter.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Pages/FetchData.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Pages/Index.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Shared/SurveyPrompt.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/_Imports.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Shared/MainLayout.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ue12j0c5j8
 
-[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Shared/NavMenu.razor]
+[/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-dwvujiiut8

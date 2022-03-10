@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yqSDxtyPyfD+8+cpXCVZK95MD2oeyaSPxBhjCuvGQKXW1Npx7NsKsY+ur5usG5PPURpjzkV2skGEjX//2W2zQg==",
+  "dgSpecHash": "EeP4FQQhj+wKIwFC4NW5nmGKiZD9pP8MHNn4jCyFo3BXamXg6rxUMZ7WiUE6AVeX51oFUmnnEFjPlLG42Kad0g==",
   "success": true,
-  "projectFilePath": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Client.csproj",
+  "projectFilePath": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Client.csproj",
   "expectedPackageFiles": [
     "/Users/semsnel/.nuget/packages/microsoft.aspnetcore.authorization/6.0.2/microsoft.aspnetcore.authorization.6.0.2.nupkg.sha512",
     "/Users/semsnel/.nuget/packages/microsoft.aspnetcore.components/6.0.2/microsoft.aspnetcore.components.6.0.2.nupkg.sha512",

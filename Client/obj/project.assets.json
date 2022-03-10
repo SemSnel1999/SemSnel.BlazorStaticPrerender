@@ -1551,11 +1551,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Client.csproj",
+      "projectUniqueName": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Client.csproj",
       "projectName": "Client",
-      "projectPath": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/Client.csproj",
+      "projectPath": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/Client.csproj",
       "packagesPath": "/Users/semsnel/.nuget/packages/",
-      "outputPath": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/BlazorStaticPrerender/Client/obj/",
+      "outputPath": "/Users/semsnel/Documents/Projects/BlazorStaticPrerender/Naamloos/Client/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/semsnel/.nuget/NuGet/NuGet.Config"

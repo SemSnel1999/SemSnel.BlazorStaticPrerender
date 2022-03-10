@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using Swiftvice.CleanArchitecture.Client
+@using Swiftvice.CleanArchitecture.Client.Host.Pages
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+    @RenderSection("StyleSheets", required: true)
+    <component type="typeof(HeadOutlet)" render-mode="WebAssemblyPrerendered" />
+</head>
+<html>
+
+<body>
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

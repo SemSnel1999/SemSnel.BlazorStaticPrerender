@@ -1,0 +1,25 @@
+﻿@page
+@namespace Client.Host.Pages
+@using Client
+@using Microsoft.AspNetCore.Components.Web
+
+@section StyleSheets {
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet" />
+        <link href="Client.styles.css" rel="stylesheet" />
+}
+
+<component type="typeof(App)" render-mode="WebAssemblyPrerendered" />
+
+<persist-component-state/>
+
+@section Scripts 
+{
+    <script src="_content/Client.Shared/js/index.bundle.js"></script>
+    <script src="_content/Microsoft.AspNetCore.Components.CustomElements/BlazorCustomElements.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+}
+
+@{
+    Layout = "_Layout";
+}
