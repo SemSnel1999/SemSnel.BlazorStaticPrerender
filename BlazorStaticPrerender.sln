@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Host", "Client.Host\Client.Host.csproj", "{92E47D8C-287C-41EC-BBCA-C49EE63B20A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.StaticPreRenderer", "Client.StaticPreRenderer\Client.StaticPreRenderer.csproj", "{F8FCE7CC-C48A-4E56-B4C8-F8AA3F2A492A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{92E47D8C-287C-41EC-BBCA-C49EE63B20A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92E47D8C-287C-41EC-BBCA-C49EE63B20A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92E47D8C-287C-41EC-BBCA-C49EE63B20A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FCE7CC-C48A-4E56-B4C8-F8AA3F2A492A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FCE7CC-C48A-4E56-B4C8-F8AA3F2A492A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FCE7CC-C48A-4E56-B4C8-F8AA3F2A492A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FCE7CC-C48A-4E56-B4C8-F8AA3F2A492A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
