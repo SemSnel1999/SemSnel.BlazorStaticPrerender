@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-public class GenerateBlazorWebAppOutput : IClassFixture<BlazorWebAppTestFixture>
+public class GenerateBlazorWebAppOutput : IClassFixture<WebAppTestFixture>
 {
-    private readonly BlazorWebAppTestFixture _fixture;
+    private readonly WebAppTestFixture _fixture;
     private readonly HttpClient _client;
     private readonly string _outputPath;
 
-    public GenerateBlazorWebAppOutput(BlazorWebAppTestFixture fixture)
+    public GenerateBlazorWebAppOutput(WebAppTestFixture fixture)
     {
         _fixture = fixture;
         

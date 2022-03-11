@@ -7,13 +7,13 @@ using Xunit;
 
 namespace Client.StaticPreRenderer;
 
-public class GenerateServerOutput : IClassFixture<BlazorWebAppTestFixture>
+public class GenerateServerOutput : IClassFixture<WebAppTestFixture>
 {
-    private readonly BlazorWebAppTestFixture _fixture;
+    private readonly WebAppTestFixture _fixture;
     private readonly HttpClient _client;
     private readonly string _outputPath;
 
-    public GenerateServerOutput(BlazorWebAppTestFixture fixture)
+    public GenerateServerOutput(WebAppTestFixture fixture)
     {
         _fixture = fixture;
         

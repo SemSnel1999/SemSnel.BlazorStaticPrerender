@@ -12,7 +12,7 @@ using Xunit.Abstractions;
 
 namespace Client.StaticPreRenderer;
 
-public class BlazorWebAppTestFixture : WebApplicationFactory<Client.Host.Program>
+public class WebAppTestFixture : WebApplicationFactory<Client.Host.Program>
 {
     protected override IHostBuilder CreateHostBuilder()
     {
