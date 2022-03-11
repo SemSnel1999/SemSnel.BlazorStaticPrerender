@@ -26,7 +26,6 @@ public class GenerateServerOutput : IClassFixture<BlazorWebAppTestFixture>
     
     [Theory, Trait("Category", "PreRender")]
     [InlineData("/WeatherForecast")]
-    [InlineData("/WeatherForecasts")]
     public async Task Render(string route)
     {
         var renderPath = "sample-data"; // strip the initial / off
