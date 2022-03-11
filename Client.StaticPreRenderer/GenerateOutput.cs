@@ -40,6 +40,7 @@ public class GenerateOutput : IClassFixture<AppTestFixture>
 
         // Call the prerendering API, and write the contents to the file
         var result = await _client.GetStreamAsync(route);
+        
         using (var file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
         {
             await result.CopyToAsync(file);
