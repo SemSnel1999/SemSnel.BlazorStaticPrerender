@@ -59,8 +59,6 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        //IsLoading = true;
-
         var url = "PageRoute";
 
         var isPeristed = PersistentComponentState.TryTakeFromJson<List<WeatherForecast>>(url, out var restored);
@@ -75,10 +73,8 @@ else
         {
             Console.WriteLine("Load from call...");
             
-            forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("sample-data/weather.json");
+            forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("sample-data/WeatherForecast.json");
         }
-        
-        //IsLoading = false;
         
         StateHasChanged();
     }
