@@ -1,36 +1,22 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace Client.Host;
 
-// Add services to the container.
-builder.Services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
-
-builder.Services.AddScoped(sp => new HttpClient
+public class Program
 {
-    BaseAddress = new Uri("https://localhost:7256/")
-});
+    public static void Main(string[] args)
+        => CreateHostBuilder(args)
+            .Build()
+            .Run();
 
-builder.Services.AddRazorPages();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
+            .ConfigureLogging(logging =>
+            {
+                logging.ClearProviders();
+                logging.AddConsole();
+            })
+            .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
 }
-
-app.UseHttpsRedirection();
-
-app.UseBlazorFrameworkFiles();
-
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.MapRazorPages();
-app.MapFallbackToPage("/_Host");
-
-app.Run();

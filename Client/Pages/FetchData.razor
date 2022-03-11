@@ -1,5 +1,7 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
+@using System.Text.Json
+@implements IDisposable
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -7,43 +9,83 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (IsLoading)
 {
-    <p>
-        <em>Loading...</em>
-    </p>
+    <p>loading...</p>
 }
 else
 {
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var forecast in forecasts)
-        {
+    @if (forecasts == null)
+    {
+        <p>
+            <em>Loading...</em>
+        </p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
             <tr>
-                <td>@forecast.Date.ToShortDateString()</td>
-                <td>@forecast.TemperatureC</td>
-                <td>@forecast.TemperatureF</td>
-                <td>@forecast.Summary</td>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
             </tr>
-        }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private IEnumerable<WeatherForecast> forecasts;
+    private PersistingComponentStateSubscription _persistingSubscription;
 
-    protected override async Task OnInitializedAsync()
+    public bool IsLoading { get; set; } = false;
+
+    [Inject]
+    public PersistentComponentState PersistentComponentState { get; set; }
+
+    protected override async Task OnParametersSetAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        //IsLoading = true;
+
+        var url = "PageRoute";
+
+        var isPeristed = PersistentComponentState.TryTakeFromJson<List<WeatherForecast>>(url, out var restored);
+
+        if (isPeristed)
+        {
+            Console.WriteLine("Load restored...");
+            
+            forecasts = restored;
+        }
+        else
+        {
+            Console.WriteLine("Load from call...");
+            
+            forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("sample-data/weather.json");
+        }
+        
+        //IsLoading = false;
+        
+        StateHasChanged();
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        _persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistContent);
     }
 
     public class WeatherForecast
@@ -56,5 +98,16 @@ else
 
         public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
     }
+    
+    private Task PersistContent()
+    {
+        PersistentComponentState.PersistAsJson("PageRoute", forecasts);
 
+        return Task.CompletedTask;
+    }
+
+    public void Dispose()
+    {
+        _persistingSubscription.Dispose();
+    }
 }
