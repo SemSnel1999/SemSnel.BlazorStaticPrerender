@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-public class GenerateOutput : IClassFixture<AppTestFixture>
+public class GenerateBlazorWebAppOutput : IClassFixture<BlazorWebAppTestFixture>
 {
-    private readonly AppTestFixture _fixture;
+    private readonly BlazorWebAppTestFixture _fixture;
     private readonly HttpClient _client;
     private readonly string _outputPath;
 
-    public GenerateOutput(AppTestFixture fixture)
+    public GenerateBlazorWebAppOutput(BlazorWebAppTestFixture fixture)
     {
         _fixture = fixture;
         
@@ -38,7 +38,6 @@ public class GenerateOutput : IClassFixture<AppTestFixture>
         Directory.CreateDirectory(outputDirectory);
 
         var filePath = Path.Combine(outputDirectory, "index.html"); // Build the output file path
-
         
         var result = await _client.GetStreamAsync(route); // Call the prerendering API, and write the contents to the file
         

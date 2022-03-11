@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace Client.Host;
 
@@ -58,8 +59,15 @@ public class Startup
             
             return new HttpClient { BaseAddress = new Uri(baseAddress) };
         });
-
+        
         services.AddRazorPages();
+        
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Umbraco Blazor CMS API", Version = "v1" });
+        });
+        
+        services.AddControllers();
     }
 
     /// <summary>
@@ -79,6 +87,9 @@ public class Startup
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+        
+        app.UseSwagger();
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Umbraco Blazor CMS API"));
 
         app.UseHttpsRedirection();
 
@@ -90,6 +101,7 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapRazorPages();
+            endpoints.MapControllers();
             endpoints.MapFallbackToPage("/_Host");
         });
     }

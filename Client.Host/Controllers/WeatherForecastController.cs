@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace Client.Host.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
+    [HttpGet]
     public async Task<IActionResult> Get()
     {
         var random = new Random();
