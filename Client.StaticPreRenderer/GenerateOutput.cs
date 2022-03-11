@@ -15,9 +15,11 @@ public class GenerateOutput : IClassFixture<AppTestFixture>
     public GenerateOutput(AppTestFixture fixture)
     {
         _fixture = fixture;
+        
         _client = fixture.CreateDefaultClient();
 
         var config = _fixture.Services.GetRequiredService<IConfiguration>();
+        
         _outputPath = config["RenderOutputDirectory"];
     }
 
@@ -27,19 +29,18 @@ public class GenerateOutput : IClassFixture<AppTestFixture>
     [InlineData("/fetchdata")]
     public async Task Render(string route)
     {
-        // strip the initial / off
-        var renderPath = route.Substring(1);
+        var renderPath = route.Substring(1); // strip the initial / off
 
-        // create the output directory
-        var relativePath = Path.Combine(_outputPath, renderPath);
+        var relativePath = Path.Combine(_outputPath, renderPath); // create the output directory
+        
         var outputDirectory = Path.GetFullPath(relativePath);
+        
         Directory.CreateDirectory(outputDirectory);
 
-        // Build the output file path
-        var filePath = Path.Combine(outputDirectory, "index.html");
+        var filePath = Path.Combine(outputDirectory, "index.html"); // Build the output file path
 
-        // Call the prerendering API, and write the contents to the file
-        var result = await _client.GetStreamAsync(route);
+        
+        var result = await _client.GetStreamAsync(route); // Call the prerendering API, and write the contents to the file
         
         using (var file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
         {
