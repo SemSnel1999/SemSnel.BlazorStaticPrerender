@@ -73,7 +73,7 @@ else
         {
             Console.WriteLine("Load from call...");
             
-            forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("sample-data/weather.json");
+            forecasts = await Http.GetFromJsonAsync<List<WeatherForecast>>("sample-data/WeatherForecast.json");
         }
         
         StateHasChanged();
