@@ -26,4 +26,5 @@ In case the website is expanded and expects more dynamic content, the previously
 
 
 sources:
-https://andrewlock.net/prerending-a-blazor-webassembly-app-without-an-asp-net-core-host-app/
+
+Lock, A. (2022, 8 maart). Prerendering a Blazor WebAssembly app to static files, without an ASP.NET Core host app. Andrew Lock | .NET Escapades. Geraadpleegd op 9 maart 2022, van https://andrewlock.net/prerending-a-blazor-webassembly-app-without-an-asp-net-core-host-app/
