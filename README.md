@@ -22,7 +22,7 @@ In case the website is expanded and expects more dynamic content, the previously
 
 **When shouldn't I use this method instead of a Azure hosted Host Client Prerenderer?**
 - Fast publishing and updating content is not possible
-- Dynamicly retrieving data from a server that is prone to changes is not possible
+- Prerendering and dynamicly retrieving data from a server that is prone to changes is not possible. This will negatively affect a sites SEO score.
 
 
 sources:
