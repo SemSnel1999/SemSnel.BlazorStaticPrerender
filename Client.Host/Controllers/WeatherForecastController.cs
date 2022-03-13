@@ -10,6 +10,13 @@ namespace Client.Host.Controllers;
 [Route("api/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
+    private readonly HttpClient _httpClient;
+    
+    public WeatherForecastController(HttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
+    
     [HttpGet]
     public async Task<IActionResult> Get()
     {
@@ -17,7 +24,8 @@ public class WeatherForecastController : ControllerBase
 
         var forecasts = Enumerable
             .Range(1, 5)
-            .Select(index => new FetchData.WeatherForecast
+            .Select(
+                index => new FetchData.WeatherForecast
         {
             Date = DateTime.Now.AddDays(index),
             TemperatureC = random.Next(-20, 55),
@@ -26,7 +34,7 @@ public class WeatherForecastController : ControllerBase
 
         return Ok(forecasts);
     }
-    
+
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"

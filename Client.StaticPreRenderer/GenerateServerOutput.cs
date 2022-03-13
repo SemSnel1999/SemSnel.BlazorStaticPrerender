@@ -1,6 +1,7 @@
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Client.StaticPreRenderer.Factories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
@@ -28,25 +29,10 @@ public class GenerateServerOutput : IClassFixture<WebAppTestFixture>
     [InlineData("/WeatherForecast")]
     public async Task Render(string route)
     {
-        var renderPath = "sample-data"; // strip the initial / off
+        var result = await _client.GetStreamAsync($"/api{route}"); // Call the prerendering API, and write the contents to the file
 
-        var relativePath = Path.Combine(_outputPath, renderPath); // create the output directory
-        
-        var outputDirectory = Path.GetFullPath(relativePath);
-        
-        Directory.CreateDirectory(outputDirectory);
+        var factory = new ServerResponseToStaticFileFactory();
 
-        var fileName = route.Substring(1);
-        
-        var fileType = "json";
-        
-        var filePath = Path.Combine(outputDirectory, $"{fileName}.{fileType}"); // Build the output file path
-        
-        var result = await _client.GetStreamAsync("/api" + route); // Call the prerendering API, and write the contents to the file
-        
-        using (var file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
-        {
-            await result.CopyToAsync(file);
-        }
+        await factory.Create(result, route, _outputPath);
     }
 }
