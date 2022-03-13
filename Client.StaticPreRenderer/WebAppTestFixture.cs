@@ -26,7 +26,11 @@ public class WebAppTestFixture : WebApplicationFactory<Client.Host.Program>
                 webHostBuilder.UseStaticWebAssets(); // Add this line
                 webHostBuilder.ConfigureTestServices(services =>
                 {
-                    services.Remove(new ServiceDescriptor(typeof(HttpClient), typeof(HttpClient), ServiceLifetime.Singleton));
+                    services.Remove(
+                        new ServiceDescriptor(typeof(HttpClient), 
+                            typeof(HttpClient), 
+                            ServiceLifetime.Singleton));
+                    
                     services.AddSingleton(_ => CreateDefaultClient());
                 });
             });

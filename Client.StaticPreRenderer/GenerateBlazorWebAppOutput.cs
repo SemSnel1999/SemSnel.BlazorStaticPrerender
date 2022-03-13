@@ -2,6 +2,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Client.StaticPreRenderer;
+using Client.StaticPreRenderer.Factories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
@@ -27,23 +28,13 @@ public class GenerateBlazorWebAppOutput : IClassFixture<WebAppTestFixture>
     [InlineData("/")]
     [InlineData("/counter")]
     [InlineData("/fetchdata")]
+    [InlineData("/Blogs/blog1")]
     public async Task Render(string route)
     {
-        var renderPath = route.Substring(1); // strip the initial / off
+        var getContentTask = _client.GetStreamAsync(route); // Call the prerendering API, and write the contents to the file
 
-        var relativePath = Path.Combine(_outputPath, renderPath); // create the output directory
-        
-        var outputDirectory = Path.GetFullPath(relativePath);
-        
-        Directory.CreateDirectory(outputDirectory);
+        var factory = new BlazorToStaticPageFactory();
 
-        var filePath = Path.Combine(outputDirectory, "index.html"); // Build the output file path
-        
-        var result = await _client.GetStreamAsync(route); // Call the prerendering API, and write the contents to the file
-        
-        using (var file = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
-        {
-            await result.CopyToAsync(file);
-        }
+        await factory.Create(await getContentTask, route, _outputPath);
     }
 }
